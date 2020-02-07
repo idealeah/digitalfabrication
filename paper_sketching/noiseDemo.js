@@ -24,8 +24,9 @@ function onFrame(event) {
     for (var i = 0; i < numPoints; i++) {
         //get milliseconds
         var millis = event.time;
+        console.log(event);
         //get 2D noise information
-        var y = simplex.noise2D(i / 8, millis / 8);
+        var y = simplex.noise2D(i / 20, millis / 8);
         //calibrate the y value so it fits the canvas
         y = (y + 5) * 60;
         //move the y value of each point
@@ -36,6 +37,7 @@ function onFrame(event) {
     path.smooth();
     //console.log(event.count);
 
+    //download svg every 100th frame using modulo operator
     if (event.count % 100 == 0) {
         //downloadAsSVG();
     }
